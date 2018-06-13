@@ -15,6 +15,7 @@ namespace csharp
         {
             this.provider = provider;
             LaunchList = provider.GetCurrentLaunches();
+            LaunchList.Sort((ax, ay) => ax.Destination.CompareTo(ay.Destination));
             provider.Subscribe(this);
             running = true;
         }
